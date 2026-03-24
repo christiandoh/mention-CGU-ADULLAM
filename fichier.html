@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditions Générales d'Utilisation — Adullam</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+                                                /* Sidebar mobile scrollable nav */
+                                                @media (max-width: 600px) {
+                                                    .mobile-sidebar-nav-scroll {
+                                                        flex: 1 1 auto;
+                                                        overflow-y: auto;
+                                                        max-height: 60vh;
+                                                        margin-bottom: 1.2rem;
+                                                    }
+                                                }
+                        /* Sidebar mobile toggle */
+                        .mobile-sidebar-toggle, .mobile-sidebar {
+                            display: none;
+                        }
+                        @media (max-width: 600px) {
+                            .mobile-sidebar-toggle {
+                                display: block;
+                                position: fixed;
+                                top: 12px;
+                                left: 12px;
+                                z-index: 200;
+                                background: var(--bg-card);
+                                border: 1px solid var(--border);
+                                border-radius: 8px;
+                                padding: 8px 12px;
+                                color: var(--accent);
+                                font-size: 1.2rem;
+                                cursor: pointer;
+                                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                            }
+                            .sidebar {
+                                display: none !important;
+                            }
+                            .mobile-sidebar {
+                                display: flex;
+                                flex-direction: column;
+                                position: fixed;
+                                top: 0; left: 0; bottom: 0;
+                                width: 80vw;
+                                max-width: 320px;
+                                background: var(--bg-card);
+                                border-right: 1px solid var(--border);
+                                z-index: 300;
+                                padding: 2.5rem 1.2rem 1.2rem 1.2rem;
+                                box-shadow: 2px 0 16px rgba(0,0,0,0.12);
+                                transform: translateX(-100%);
+                                transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+                            }
+                            .mobile-sidebar.open {
+                                transform: translateX(0);
+                            }
+                            .mobile-sidebar .sidebar-title {
+                                margin-bottom: 1.2rem;
+                            }
+                            .mobile-sidebar .sidebar-nav {
+                                gap: 0.2rem;
+                            }
+                            .mobile-sidebar .sidebar-version {
+                                margin-top: 2rem;
+                            }
+                            .mobile-sidebar-close {
+                                position: absolute;
+                                top: 12px;
+                                right: 16px;
+                                background: none;
+                                border: none;
+                                color: var(--accent);
+                                font-size: 2rem;
+                                cursor: pointer;
+                            }
+                            body.mobile-sidebar-open {
+                                overflow: hidden;
+                            }
+                        }
+                /* --- RESPONSIVE MOBILE --- */
+                @media (max-width: 600px) {
+                    html {
+                        font-size: 15px;
+                    }
+                    body {
+                        padding: 0;
+                        font-size: 1rem;
+                    }
+                    nav {
+                        padding: 0 0.5rem;
+                        height: 54px;
+                    }
+                    .logo-icon {
+                        width: 28px;
+                        height: 28px;
+                        font-size: 12px;
+                    }
+                    .logo-text {
+                        font-size: 14px;
+                    }
+                    .nav-links {
+                        gap: 0.7rem;
+                    }
+                    .nav-links a {
+                        font-size: 9px;
+                    }
+                    .main-container {
+                        grid-template-columns: 1fr;
+                        gap: 1.5rem;
+                        padding: 0 0.5rem 3rem;
+                    }
+                    .sidebar {
+                        display: none;
+                    }
+                    .article-card {
+                        padding: 1.1rem;
+                        border-radius: 12px;
+                    }
+                    .article-title {
+                        font-size: 1.1rem !important;
+                    }
+                    .article-num {
+                        font-size: 2.2rem;
+                        top: 1rem;
+                        right: 1rem;
+                    }
+                    .hero {
+                        padding: 70px 0.5rem 40px;
+                        min-height: 60vh;
+                    }
+                    .hero-title {
+                        font-size: 2.1rem !important;
+                        margin-bottom: 1rem;
+                    }
+                    .hero-eyebrow {
+                        font-size: 0.7rem;
+                        margin-bottom: 1rem;
+                    }
+                    .hero-meta {
+                        font-size: 0.7rem;
+                        gap: 0.7rem;
+                    }
+                    .data-grid {
+                        grid-template-columns: 1fr;
+                        gap: 0.5px;
+                    }
+                    .data-cell {
+                        padding: 0.7rem 0.7rem;
+                    }
+                    .def-item {
+                        padding: 0.7rem 0.7rem;
+                        font-size: 0.95rem;
+                    }
+                    .info-box {
+                        padding: 0.7rem 0.7rem;
+                        font-size: 0.95rem;
+                    }
+                    .contact-grid {
+                        grid-template-columns: 1fr;
+                        gap: 0.7rem;
+                    }
+                    .contact-item {
+                        padding: 0.7rem;
+                    }
+                    .footer-inner {
+                        flex-direction: column;
+                        gap: 0.7rem;
+                    }
+                    footer {
+                        padding: 1.2rem 0.5rem;
+                    }
+                }
+        :root {
+            --bg: #08090d;
+            --bg-card: #0f1117;
+            --bg-card2: #13151f;
+            --border: rgba(255,255,255,0.07);
+            --border-glow: rgba(99,179,237,0.25);
+            --text: #e8eaf0;
+            --muted: #6b7280;
+            --accent: #63b3ed;
+            --accent2: #9b8afb;
+            --accent3: #48bb78;
+            --danger: #fc8181;
+            --warn: #f6ad55;
+            --glow: rgba(99,179,237,0.12);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Mono', monospace;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ── GRID BACKGROUND ── */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(99,179,237,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(99,179,237,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(8,9,13,0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            height: 56px;
+            background: rgba(8,9,13,0.95);
+            border-bottom-color: rgba(99,179,237,0.15);
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+            color: #08090d;
+        }
+
+        .logo-text {
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+        .nav-badge {
+            background: rgba(99,179,237,0.1);
+            border: 1px solid rgba(99,179,237,0.2);
+            color: var(--accent);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 2rem 80px;
+            overflow: hidden;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(ellipse at center, rgba(99,179,237,0.08), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(99,179,237,0.06);
+            border: 1px solid rgba(99,179,237,0.15);
+            border-radius: 100px;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards 0.2s;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 6px; height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 1.0;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero-title .gradient-text {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 0.6s;
+        }
+
+        .hero-meta span { display: flex; align-items: center; gap: 6px; }
+        .hero-meta .dot { width: 3px; height: 3px; background: var(--border); border-radius: 50%; }
+
+        .hero-scroll {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 1s;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            animation: scrollLine 2s ease infinite;
+        }
+
+        @keyframes scrollLine {
+            0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+            50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+            100% { transform: scaleY(1); transform-origin: bottom; opacity: 0; }
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── MAIN LAYOUT ── */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            position: sticky;
+            top: 80px;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .sidebar-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sidebar-nav {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .sidebar-nav li a {
+            display: block;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: var(--muted);
+            text-decoration: none;
+            transition: all 0.2s;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sidebar-nav li a:hover,
+        .sidebar-nav li a.active {
+            color: var(--accent);
+            background: rgba(99,179,237,0.06);
+        }
+
+        .sidebar-nav li a.active {
+            border-left: 2px solid var(--accent);
+            padding-left: 8px;
+        }
+
+        .sidebar-version {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            font-size: 10px;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* ── CONTENT ── */
+        .content { min-width: 0; }
+
+        /* ── ARTICLE SLIDES ── */
+        .article-slide {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            margin-bottom: 3rem;
+        }
+
+        .article-slide.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .article-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .article-card:hover {
+            border-color: rgba(99,179,237,0.2);
+        }
+
+        .article-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99,179,237,0.3), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .article-card:hover::before { opacity: 1; }
+
+        .article-num {
+            position: absolute;
+            top: 2rem; right: 2rem;
+            font-family: 'Instrument Serif', serif;
+            font-size: 5rem;
+            font-weight: 400;
+            color: rgba(255,255,255,0.02);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .article-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-tag {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 100px;
+            background: rgba(99,179,237,0.08);
+            border: 1px solid rgba(99,179,237,0.15);
+            color: var(--accent);
+        }
+
+        .article-tag.warn { 
+            background: rgba(246,173,85,0.08); 
+            border-color: rgba(246,173,85,0.15);
+            color: var(--warn);
+        }
+
+        .article-tag.danger { 
+            background: rgba(252,129,129,0.08); 
+            border-color: rgba(252,129,129,0.15);
+            color: var(--danger);
+        }
+
+        .article-tag.success { 
+            background: rgba(72,187,120,0.08); 
+            border-color: rgba(72,187,120,0.15);
+            color: var(--accent3);
+        }
+
+        h2.article-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+        }
+
+        h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        p { font-size: 13px; color: rgba(232,234,240,0.8); line-height: 1.8; }
+
+        ul { list-style: none; }
+
+        ul li {
+            font-size: 13px;
+            color: rgba(232,234,240,0.75);
+            padding: 6px 0 6px 20px;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        ul.danger-list li { color: rgba(252,129,129,0.9); }
+        ul.danger-list li::before { color: var(--danger); }
+
+        /* ── INFO BOXES ── */
+        .info-box {
+            margin: 1.25rem 0;
+            padding: 1.25rem 1.5rem;
+            border-radius: 12px;
+            border-left: 3px solid;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .info-box.blue {
+            background: rgba(99,179,237,0.05);
+            border-color: var(--accent);
+            color: rgba(99,179,237,0.9);
+        }
+
+        .info-box.warn {
+            background: rgba(246,173,85,0.05);
+            border-color: var(--warn);
+            color: rgba(246,173,85,0.9);
+        }
+
+        .info-box.danger {
+            background: rgba(252,129,129,0.05);
+            border-color: var(--danger);
+            color: rgba(252,129,129,0.9);
+        }
+
+        .info-box.success {
+            background: rgba(72,187,120,0.05);
+            border-color: var(--accent3);
+            color: rgba(72,187,120,0.9);
+        }
+
+        .info-box strong {
+            display: block;
+            font-family: 'Syne', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        /* ── DATA GRID (for Article 1) ── */
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 1.25rem 0;
+        }
+
+        .data-cell {
+            background: var(--bg-card2);
+            padding: 1rem 1.25rem;
+        }
+
+        .data-cell-label {
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 4px;
+        }
+
+        .data-cell-value {
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        .data-cell-value a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* ── PRICING HIGHLIGHT ── */
+        .price-display {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: var(--bg-card2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin: 1.25rem 0;
+        }
+
+        .price-amount {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.04em;
+        }
+
+        .price-detail { font-size: 12px; color: var(--muted); }
+
+        /* ── DEFINITIONS ── */
+        .def-item {
+            padding: 1rem 1.25rem;
+            background: var(--bg-card2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            color: rgba(232,234,240,0.75);
+            line-height: 1.7;
+        }
+
+        .def-item code {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: var(--accent2);
+            background: rgba(155,138,251,0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* ── CONTACT ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1.25rem 0;
+        }
+
+        .contact-item {
+            padding: 1.25rem;
+            background: var(--bg-card2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .contact-icon { font-size: 1.5rem; margin-bottom: 8px; }
+        .contact-label { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+        .contact-value { font-size: 12px; color: var(--text); }
+        .contact-value a { color: var(--accent); text-decoration: none; }
+
+        /* ── FOOTER ── */
+        footer {
+            position: relative;
+            z-index: 1;
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copy { font-size: 11px; color: var(--muted); letter-spacing: 0.05em; }
+
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { font-size: 11px; color: var(--muted); text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
+
+        /* ── PROGRESS BAR ── */
+        .reading-progress {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            z-index: 200;
+            transition: width 0.1s linear;
+        }
+
+        /* ── BACK TO TOP ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem; right: 2rem;
+            width: 44px; height: 44px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s;
+            z-index: 50;
+            color: var(--muted);
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .back-to-top:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ── SEPARATOR ── */
+        .sep {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border), transparent);
+            margin: 1.5rem 0;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .main-container { grid-template-columns: 1fr; }
+            .sidebar { position: relative; top: auto; display: none; }
+            .data-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Bouton toggle sidebar mobile -->
+<button class="mobile-sidebar-toggle" id="openSidebarBtn" aria-label="Ouvrir le sommaire">
+    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<!-- Sidebar mobile (hidden by default) -->
+<aside class="mobile-sidebar" id="mobileSidebar" tabindex="-1" aria-label="Sommaire">
+        <button class="mobile-sidebar-close" id="closeSidebarBtn" aria-label="Fermer le sommaire">&times;</button>
+        <div class="sidebar-title">Sommaire</div>
+        <div class="mobile-sidebar-nav-scroll">
+            <ul class="sidebar-nav" id="mobileSidebarNav">
+        <li><a href="#art1">Art. 1 — Éditeur</a></li>
+        <li><a href="#art2">Art. 2 — Définitions</a></li>
+        <li><a href="#art3">Art. 3 — Acceptation</a></li>
+        <li><a href="#art4">Art. 4 — Nature du Service</a></li>
+        <li><a href="#art5">Art. 5 — Inscription</a></li>
+        <li><a href="#art6">Art. 6 — Indépendance</a></li>
+        <li><a href="#art7">Art. 7 — Tarification</a></li>
+        <li><a href="#art8">Art. 8 — Obligations</a></li>
+        <li><a href="#art9">Art. 9 — Données</a></li>
+        <li><a href="#art10">Art. 10 — Garanties</a></li>
+        <li><a href="#art11">Art. 11 — Responsabilité</a></li>
+        <li><a href="#art12">Art. 12 — Indemnisation</a></li>
+        <li><a href="#art13">Art. 13 — Dommages</a></li>
+        <li><a href="#art14">Art. 14 — Confidentialité</a></li>
+        <li><a href="#art15">Art. 15 — Suspension</a></li>
+        <li><a href="#art16">Art. 16 — Force Majeure</a></li>
+        <li><a href="#art17">Art. 17 — Anti-fraude</a></li>
+        <li><a href="#art18">Art. 18 — Propriété IP</a></li>
+        <li><a href="#art19">Art. 19 — Modifications</a></li>
+        <li><a href="#art20">Art. 20 — Litiges</a></li>
+        <li><a href="#art21">Art. 21 — Droit</a></li>
+        <li><a href="#art22">Art. 22 — Dispositions</a></li>
+        <li><a href="#art23">Art. 23 — Contact</a></li>
+            </ul>
+        </div>
+    <div class="sidebar-version">
+        <div>CGU Adullam · v2.0</div>
+        <div style="margin-top:4px; color: rgba(107,114,128,0.6);">Rég. par le droit ivoirien</div>
+    </div>
+</aside>
+
+<div class="reading-progress" id="readingProgress"></div>
+
+<script>
+// Sidebar mobile toggle logic
+const openSidebarBtn = document.getElementById('openSidebarBtn');
+const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+const mobileSidebar = document.getElementById('mobileSidebar');
+const sidebarLinks = mobileSidebar.querySelectorAll('a');
+
+openSidebarBtn.addEventListener('click', () => {
+    mobileSidebar.classList.add('open');
+    document.body.classList.add('mobile-sidebar-open');
+    mobileSidebar.focus();
+});
+closeSidebarBtn.addEventListener('click', () => {
+    mobileSidebar.classList.remove('open');
+    document.body.classList.remove('mobile-sidebar-open');
+});
+// Fermer la sidebar mobile au clic sur un lien
+sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileSidebar.classList.remove('open');
+        document.body.classList.remove('mobile-sidebar-open');
+    });
+});
+// Fermer avec la touche ESC
+mobileSidebar.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        mobileSidebar.classList.remove('open');
+        document.body.classList.remove('mobile-sidebar-open');
+    }
+});
+</script>
+
+<nav id="navbar">
+    <a href="https://adullam.dev" class="nav-logo">
+        <img src="logo.jpeg" alt="Adullam" class="logo-icon" style="object-fit:cover; background:none;" />
+        <span class="logo-text">Adullam</span>
+    </a>
+    <ul class="nav-links">
+        <li><a href="https://adullam.dev/doc">Documentation</a></li>
+        <li><a href="https://adullam.dev/pricing">Pricing</a></li>
+        <li><a href="https://adullam.dev/mentions/privacy">Confidentialité</a></li>
+        <li><a href="https://adullam.dev/mentions/cgu" class="active">CGU</a></li>
+        <li><span class="nav-badge">v2.0</span></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+    <div class="hero-glow"></div>
+    <div class="hero-eyebrow">Documentation légale</div>
+    <h1 class="hero-title">Conditions<br><span class="gradient-text">Générales</span><br>d'Utilisation</h1>
+    <div class="hero-meta">
+        <span>Version 2.0</span>
+        <div class="dot"></div>
+        <span>23 mars 2026</span>
+        <div class="dot"></div>
+        <span>23 articles</span>
+    </div>
+    <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        scroll
+    </div>
+</section>
+
+<!-- MAIN -->
+<div class="main-container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-title">Sommaire</div>
+        <ul class="sidebar-nav" id="sidebarNav">
+            <li><a href="#art1">Art. 1 — Éditeur</a></li>
+            <li><a href="#art2">Art. 2 — Définitions</a></li>
+            <li><a href="#art3">Art. 3 — Acceptation</a></li>
+            <li><a href="#art4">Art. 4 — Nature du Service</a></li>
+            <li><a href="#art5">Art. 5 — Inscription</a></li>
+            <li><a href="#art6">Art. 6 — Indépendance</a></li>
+            <li><a href="#art7">Art. 7 — Tarification</a></li>
+            <li><a href="#art8">Art. 8 — Obligations</a></li>
+            <li><a href="#art9">Art. 9 — Données</a></li>
+            <li><a href="#art10">Art. 10 — Garanties</a></li>
+            <li><a href="#art11">Art. 11 — Responsabilité</a></li>
+            <li><a href="#art12">Art. 12 — Indemnisation</a></li>
+            <li><a href="#art13">Art. 13 — Dommages</a></li>
+            <li><a href="#art14">Art. 14 — Confidentialité</a></li>
+            <li><a href="#art15">Art. 15 — Suspension</a></li>
+            <li><a href="#art16">Art. 16 — Force Majeure</a></li>
+            <li><a href="#art17">Art. 17 — Anti-fraude</a></li>
+            <li><a href="#art18">Art. 18 — Propriété IP</a></li>
+            <li><a href="#art19">Art. 19 — Modifications</a></li>
+            <li><a href="#art20">Art. 20 — Litiges</a></li>
+            <li><a href="#art21">Art. 21 — Droit</a></li>
+            <li><a href="#art22">Art. 22 — Dispositions</a></li>
+            <li><a href="#art23">Art. 23 — Contact</a></li>
+        </ul>
+        <div class="sidebar-version">
+            <div>CGU Adullam · v2.0</div>
+            <div style="margin-top:4px; color: rgba(107,114,128,0.6);">Rég. par le droit ivoirien</div>
+        </div>
+    </aside>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- Art 1 -->
+        <div class="article-slide" id="art1">
+            <div class="article-card">
+                <div class="article-num">01</div>
+                <div class="article-header">
+                    <span class="article-tag">Entreprise</span>
+                    <h2 class="article-title">OFCEAB STUDIO</h2>
+                </div>
+                <p style="margin-bottom:1.25rem">Le service Adullam est édité par :</p>
+                <div class="data-grid">
+                    <div class="data-cell">
+                        <div class="data-cell-label">Raison sociale</div>
+                        <div class="data-cell-value">OFCEAB STUDIO</div>
+                    </div>
+                    <div class="data-cell">
+                        <div class="data-cell-label">Forme juridique</div>
+                        <div class="data-cell-value">SARL</div>
+                    </div>
+                    <div class="data-cell">
+                        <div class="data-cell-label">Siège social</div>
+                        <div class="data-cell-value">ABIDJAN ABOBO PLATEAUX DOKUI ; 14 BP 1343 ABIDJAN 14</div>
+                    </div>
+                    <div class="data-cell">
+                        <div class="data-cell-label">Capital social</div>
+                        <div class="data-cell-value">1 000 000 FCFA</div>
+                    </div>
+                    <div class="data-cell">
+                        <div class="data-cell-label">Site web</div>
+                        <div class="data-cell-value"><a href="https://adullam.dev">adullam.dev</a></div>
+                    </div>
+                    <div class="data-cell">
+                        <div class="data-cell-label">Email</div>
+                        <div class="data-cell-value"><a href="mailto:hello@adullam.dev">christiandohlah@adullam.dev</a></div>
+                    </div>
+                    <div class="data-cell">
+                        <div class="data-cell-label">Support</div>
+                        <div class="data-cell-value"><a href="mailto:support@adullam.dev">support@adullam.dev</a></div>
+                    </div>
+                    <div class="data-cell">
+                        <div class="data-cell-label">Directeur marketing</div>
+                        <div class="data-cell-value">DOH LAH NUNDO CHRISTIAN co-fondateur</div>
+                    </div>
+                    <div class="data-cell">
+                        <div class="data-cell-label">RCCM</div>
+                        <div class="data-cell-value">CI-ABJ-03-2024-B12-07490</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 2 -->
+        <div class="article-slide" id="art2">
+            <div class="article-card">
+                <div class="article-num">02</div>
+                <div class="article-header">
+                    <span class="article-tag">Lexique</span>
+                    <h2 class="article-title">Définitions</h2>
+                </div>
+                <div class="def-item"><code>Service</code> — La plateforme Adullam, incluant l'API, le tableau de bord marchand, les SDKs et toute documentation associée.</div>
+                <div class="def-item"><code>Marchand / Utilisateur</code> — Toute personne physique ou morale inscrite sur Adullam pour utiliser le Service dans le cadre de son activité commerciale.</div>
+                <div class="def-item"><code>Client Final</code> — Toute personne effectuant un paiement via le Service pour acquérir un bien ou service auprès d'un Marchand.</div>
+                <div class="def-item"><code>Passerelle de Paiement</code> — Les prestataires tiers (Wave, Orange Money, MTN Mobile Money, Paystack, etc.) dont les API sont intégrées via Adullam.</div>
+                <div class="def-item"><code>Transaction</code> — Toute opération de paiement initiée via le Service, qu'elle soit réussie, échouée ou en attente.</div>
+                <div class="def-item"><code>Clés API</code> — Les identifiants uniques (clé publique et clé secrète) attribués au Marchand pour accéder au Service.</div>
+                <div class="def-item"><code>Webhook</code> — Le mécanisme de notification automatique permettant d'informer le Marchand de l'état d'une Transaction.</div>
+            </div>
+        </div>
+
+        <!-- Art 3 -->
+        <div class="article-slide" id="art3">
+            <div class="article-card">
+                <div class="article-num">03</div>
+                <div class="article-header">
+                    <span class="article-tag warn">Consentement</span>
+                    <h2 class="article-title">Acceptation des Conditions</h2>
+                </div>
+                <p>L'utilisation du Service implique l'acceptation pleine et entière des présentes Conditions Générales d'Utilisation.</p>
+                <div class="info-box warn">
+                    <strong>Consentement</strong>
+                    En créant un compte, en accédant à l'API ou en utilisant tout composant du Service, le Marchand reconnaît avoir lu, compris et accepté sans réserve les présentes CGU.
+                </div>
+                <p>Adullam se réserve le droit de modifier les présentes CGU à tout moment. Les modifications entrent en vigueur dès leur publication sur le site. Le Marchand sera notifié par email des modifications substantielles. La poursuite de l'utilisation du Service après notification vaut acceptation des nouvelles conditions.</p>
+            </div>
+        </div>
+
+        <!-- Art 4 -->
+        <div class="article-slide" id="art4">
+            <div class="article-card">
+                <div class="article-num">04</div>
+                <div class="article-header">
+                    <span class="article-tag">Service</span>
+                    <h2 class="article-title">Nature du Service</h2>
+                </div>
+                <div class="info-box warn">
+                    <strong>Important</strong>
+                    Adullam <strong>n'est pas</strong> un établissement de paiement, ni un agrégateur de paiement, ni un PSP. Nous ne fournissons aucun compte marchand de traitement.
+                </div>
+                <p style="margin-bottom:1rem">Adullam fournit une <strong style="color:var(--text)">Prestation d'Intégration de Moyens de Paiement</strong>. Notre service se limite à :</p>
+                <ul>
+                    <li>Faciliter l'intégration technique des passerelles de paiement via une API unifiée</li>
+                    <li>Transmettre les requêtes de paiement aux API officielles des opérateurs concernés</li>
+                    <li>Notifier les marchands des résultats de transactions via des webhooks</li>
+                    <li>Fournir un tableau de bord de suivi des transactions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Art 5 -->
+        <div class="article-slide" id="art5">
+            <div class="article-card">
+                <div class="article-num">05</div>
+                <div class="article-header">
+                    <span class="article-tag">Compte</span>
+                    <h2 class="article-title">Inscription et Compte Marchand</h2>
+                </div>
+                <h3>5.1 Conditions d'éligibilité</h3>
+                <ul>
+                    <li>Être une personne morale légalement constituée ou une personne physique majeure exerçant une activité commerciale licite</li>
+                    <li>Disposer de la capacité juridique pour s'engager au nom de l'entité représentée</li>
+                    <li>Fournir des informations exactes, complètes et à jour lors de l'inscription</li>
+                    <li>Exercer une activité conforme aux lois en vigueur dans son pays d'exercice</li>
+                </ul>
+                <h3>5.2 Activités interdites</h3>
+                <ul class="danger-list">
+                    <li>Activités illégales, frauduleuses ou contraires à l'ordre public</li>
+                    <li>Jeux d'argent non autorisés</li>
+                    <li>Vente de produits contrefaits ou volés</li>
+                    <li>Pornographie, armes ou drogues</li>
+                    <li>Blanchiment d'argent ou financement du terrorisme</li>
+                    <li>Pyramide de Ponzi ou schémas frauduleux similaires</li>
+                </ul>
+                <h3>5.3 Vérification d'identité (KYC)</h3>
+                <p>Adullam se réserve le droit de demander des documents justificatifs pour vérifier l'identité du Marchand et la légitimité de son activité.</p>
+                <h3>5.4 Sécurité du compte</h3>
+                <p>Le Marchand est seul responsable de la confidentialité de ses identifiants de connexion et de ses clés API.</p>
+            </div>
+        </div>
+
+        <!-- Art 6 -->
+        <div class="article-slide" id="art6">
+            <div class="article-card">
+                <div class="article-num">06</div>
+                <div class="article-header">
+                    <span class="article-tag">Légal</span>
+                    <h2 class="article-title">Indépendance et Non-Affiliation</h2>
+                </div>
+                <p style="margin-bottom:1rem">Adullam opère de manière <strong style="color:var(--text)">totalement indépendante</strong> et n'est affiliée à aucune marque ni passerelle de paiement présente sur sa plateforme.</p>
+                <p style="margin-bottom:1rem">Les marques et noms commerciaux figurant sur notre site (Wave, Orange Money, MTN MoMo, Moov Money, Visa, Mastercard, Paystack, etc.) appartiennent à leurs propriétaires respectifs. Leur présence sur notre plateforme :</p>
+                <ul>
+                    <li>N'implique aucun partenariat commercial</li>
+                    <li>N'implique aucune approbation officielle de leur part</li>
+                    <li>Sert uniquement à identifier les moyens de paiement disponibles</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Art 7 -->
+        <div class="article-slide" id="art7">
+            <div class="article-card">
+                <div class="article-num">07</div>
+                <div class="article-header">
+                    <span class="article-tag success">Tarifs</span>
+                    <h2 class="article-title">Tarification</h2>
+                </div>
+                <div class="price-display">
+                    <div class="price-amount">1%</div>
+                    <div>
+                        <div class="price-detail" style="color:var(--text); font-size:14px; margin-bottom:4px">par transaction réussie</div>
+                        <div class="price-detail">+ frais fixes par opération</div>
+                    </div>
+                </div>
+                <div class="info-box blue">
+                    <strong>Frais de Cash-Out </strong>
+                    Les frais de retrait (cash-out)  sont directement facturés par les opérateurs de paiement concernés (Wave, Orange Money, etc.) selon leurs propres grilles tarifaires. Adullam ne perçoit aucune commission sur les retrait.
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 8 -->
+        <div class="article-slide" id="art8">
+            <div class="article-card">
+                <div class="article-num">08</div>
+                <div class="article-header">
+                    <span class="article-tag warn">Obligations</span>
+                    <h2 class="article-title">Obligations du Marchand</h2>
+                </div>
+                <p style="margin-bottom:1rem">En utilisant Adullam, le marchand s'engage à :</p>
+                <ul>
+                    <li>Fournir des informations exactes lors de l'inscription</li>
+                    <li>Exercer une activité commerciale licite</li>
+                    <li>Sécuriser ses clés API et ne pas les partager</li>
+                    <li>Respecter les conditions d'utilisation des passerelles de paiement sous-jacentes</li>
+                    <li>Informer ses clients des moyens de paiement disponibles</li>
+                    <li>Mettre en place les webhooks pour confirmer les paiements</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Art 9 -->
+        <div class="article-slide" id="art9">
+            <div class="article-card">
+                <div class="article-num">09</div>
+                <div class="article-header">
+                    <span class="article-tag">RGPD</span>
+                    <h2 class="article-title">Protection des Données Personnelles</h2>
+                </div>
+                <h3>9.1 Données collectées</h3>
+                <ul>
+                    <li>Données d'identification du Marchand (nom, email, téléphone, adresse)</li>
+                    <li>Données de transaction (montants, références, statuts)</li>
+                    <!-- <li>Données techniques (logs, adresses IP, informations de connexion)</li> -->
+                    <li>Données des Clients Finaux transmises par le Marchand</li>
+                </ul>
+                <h3>9.2 Conservation</h3>
+                <div class="info-box blue">
+                    <strong>Durée de conservation</strong>
+                    Les données de transaction sont conservées pendant <strong>10 ans</strong> conformément aux obligations légales. Les données de compte sont conservées pendant la durée de la relation contractuelle et <strong>5 ans</strong> après sa cessation.
+                </div>
+                <h3>9.3 Droits du Marchand</h3>
+                <p>Le Marchand dispose d'un droit d'accès, de rectification, de suppression et de portabilité. Ces droits peuvent être exercés à <a href="mailto:privacy@adullam.dev" style="color:var(--accent)">support@adullam.dev</a>.</p>
+                <div class="info-box warn">
+                    <strong>Responsabilité Marchand</strong>
+                    Le Marchand est responsable du traitement des données personnelles de ses Clients Finaux. Il s'engage à respecter la réglementation applicable en matière de protection des données.
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 10 -->
+        <div class="article-slide" id="art10">
+            <div class="article-card">
+                <div class="article-num">10</div>
+                <div class="article-header">
+                    <span class="article-tag">SLA</span>
+                    <h2 class="article-title">Garanties et Disponibilité</h2>
+                </div>
+                <h3>10.1 Obligation de moyens</h3>
+                <p>Adullam s'engage à fournir le Service avec diligence et selon les règles de l'art. Cette obligation est une <strong style="color:var(--text)">obligation de moyens</strong> et non de résultat.</p>
+                <h3>10.2 Disponibilité</h3>
+                <p>Adullam s'efforce d'assurer une disponibilité du Service 24h/24, 7j/7. Le Service peut être temporairement interrompu pour maintenance, urgence ou force majeure.</p>
+                <div class="info-box danger">
+                    <strong>Clause importante</strong>
+                    Le Service est fourni « EN L'ÉTAT ». Adullam ne garantit pas que le Service sera exempt d'erreurs, de bugs ou d'interruptions.
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 11 -->
+        <div class="article-slide" id="art11">
+            <div class="article-card">
+                <div class="article-num">11</div>
+                <div class="article-header">
+                    <span class="article-tag danger">Risque</span>
+                    <h2 class="article-title">Limitation de Responsabilité</h2>
+                </div>
+                <p style="margin-bottom:1rem">Adullam agit comme intermédiaire technique. En conséquence :</p>
+                <ul>
+                    <li>Nous ne sommes pas responsables des défaillances des passerelles de paiement tierces</li>
+                    <li>Nous ne garantissons pas la disponibilité permanente des services des opérateurs</li>
+                    <li>Les litiges relatifs aux paiements doivent être traités avec l'opérateur concerné</li>
+                    <li>Nous ne sommes pas responsables des erreurs de saisie des montants par le marchand</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Art 12 -->
+        <div class="article-slide" id="art12">
+            <div class="article-card">
+                <div class="article-num">12</div>
+                <div class="article-header">
+                    <span class="article-tag warn">Indemnisation</span>
+                    <h2 class="article-title">Indemnisation</h2>
+                </div>
+                <p style="margin-bottom:1rem">Le Marchand s'engage à indemniser, défendre et dégager de toute responsabilité Adullam contre toute réclamation résultant de :</p>
+                <ul>
+                    <li>L'utilisation du Service par le Marchand</li>
+                    <li>La violation des présentes CGU par le Marchand</li>
+                    <li>La violation de tout droit d'un tiers par le Marchand</li>
+                    <li>Tout litige entre le Marchand et ses Clients Finaux</li>
+                    <li>Toute activité frauduleuse ou illégale du Marchand</li>
+                </ul>
+                <div class="info-box warn">
+                    <strong>Litiges avec les Clients Finaux</strong>
+                    Adullam n'est pas partie aux transactions entre le Marchand et ses Clients Finaux. Tout litige doit être traité directement entre le Marchand et le Client Final concerné.
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 13 -->
+        <div class="article-slide" id="art13">
+            <div class="article-card">
+                <div class="article-num">13</div>
+                <div class="article-header">
+                    <span class="article-tag danger">Plafond</span>
+                    <h2 class="article-title">Limitation des Dommages</h2>
+                </div>
+                <div class="info-box danger">
+                    <strong>Clause limitative de responsabilité</strong>
+                    En aucun cas, la responsabilité totale d'Adullam envers le Marchand ne pourra excéder le montant total des frais payés au cours des <strong>douze (12) derniers mois</strong> précédant l'événement donnant lieu à responsabilité.
+                </div>
+                <h3>13.2 Exclusion de dommages</h3>
+                <ul>
+                    <li>Perte de profits, de revenus ou d'économies anticipées</li>
+                    <li>Perte de données ou de clientèle</li>
+                    <li>Perte d'opportunités commerciales</li>
+                    <li>Dommages indirects, accessoires, spéciaux ou consécutifs</li>
+                    <li>Préjudice moral ou d'image</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Art 14 -->
+        <div class="article-slide" id="art14">
+            <div class="article-card">
+                <div class="article-num">14</div>
+                <div class="article-header">
+                    <span class="article-tag">Confidentialité</span>
+                    <h2 class="article-title">Confidentialité</h2>
+                </div>
+                <h3>13.1 Informations confidentielles</h3>
+                <ul>
+                    <li>Les clés API et identifiants de connexion</li>
+                    <li>Les données de transaction</li>
+                    <li>Les informations techniques et commerciales</li>
+                    <li>Toute information désignée comme confidentielle</li>
+                </ul>
+                <div class="sep"></div>
+                <p>L'obligation de confidentialité survit à la résiliation du contrat pendant une durée de <strong style="color:var(--text)">trois (3) ans</strong>.</p>
+            </div>
+        </div>
+
+        <!-- Art 15 -->
+        <div class="article-slide" id="art15">
+            <div class="article-card">
+                <div class="article-num">15</div>
+                <div class="article-header">
+                    <span class="article-tag danger">Suspension</span>
+                    <h2 class="article-title">Suspension et Résiliation</h2>
+                </div>
+                <p style="margin-bottom:1rem">Adullam se réserve le droit de suspendre ou résilier l'accès au service en cas de :</p>
+                <ul class="danger-list">
+                    <li>Non-respect des présentes CGU</li>
+                    <li>Activité frauduleuse ou suspecte</li>
+                    <li>Non-paiement des frais dus</li>
+                    <li>Demande des autorités compétentes</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Art 16 -->
+        <div class="article-slide" id="art16">
+            <div class="article-card">
+                <div class="article-num">16</div>
+                <div class="article-header">
+                    <span class="article-tag">Légal</span>
+                    <h2 class="article-title">Force Majeure</h2>
+                </div>
+                <p style="margin-bottom:1rem">Aucune partie ne sera responsable de l'inexécution de ses obligations si cette inexécution résulte d'un événement imprévisible, irrésistible et extérieur aux parties.</p>
+                <h3>Événements reconnus</h3>
+                <ul>
+                    <li>Catastrophes naturelles (tremblements de terre, inondations, tempêtes)</li>
+                    <li>Guerres, conflits armés, actes de terrorisme</li>
+                    <li>Épidémies ou pandémies</li>
+                    <li>Décisions gouvernementales ou réglementaires</li>
+                    <li>Pannes majeures d'infrastructure</li>
+                    <li>Cyberattaques de grande ampleur</li>
+                </ul>
+                <div class="info-box blue">
+                    <strong>Durée</strong>
+                    Si l'événement de force majeure persiste plus de <strong>30 jours</strong>, chaque partie peut résilier le contrat sans indemnité.
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 17 -->
+        <div class="article-slide" id="art17">
+            <div class="article-card">
+                <div class="article-num">17</div>
+                <div class="article-header">
+                    <span class="article-tag danger">Anti-fraude</span>
+                    <h2 class="article-title">Lutte contre la Fraude et le Blanchiment</h2>
+                </div>
+                <h3>Engagements du Marchand</h3>
+                <ul>
+                    <li>Ne pas utiliser le Service à des fins de blanchiment d'argent ou de financement du terrorisme</li>
+                    <li>Vérifier l'identité de ses clients conformément à la réglementation applicable</li>
+                    <li>Signaler toute transaction suspecte à Adullam</li>
+                    <li>Coopérer avec Adullam et les autorités compétentes en cas d'enquête</li>
+                </ul>
+                <div class="info-box danger">
+                    <strong>Droit de blocage</strong>
+                    Adullam se réserve le droit de bloquer, retarder ou annuler toute transaction suspecte, et de suspendre ou résilier le compte du Marchand en cas de suspicion de fraude, sans préavis ni indemnité.
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 18 -->
+        <div class="article-slide" id="art18">
+            <div class="article-card">
+                <div class="article-num">18</div>
+                <div class="article-header">
+                    <span class="article-tag">IP</span>
+                    <h2 class="article-title">Propriété Intellectuelle</h2>
+                </div>
+                <p>L'ensemble du contenu du site Adullam (textes, graphismes, logos, API, documentation) est la propriété exclusive d'Adullam. Toute reproduction sans autorisation est interdite.</p>
+            </div>
+        </div>
+
+        <!-- Art 19 -->
+        <div class="article-slide" id="art19">
+            <div class="article-card">
+                <div class="article-num">19</div>
+                <div class="article-header">
+                    <span class="article-tag">Évolutions</span>
+                    <h2 class="article-title">Modifications du Service</h2>
+                </div>
+                <p style="margin-bottom:1rem">Adullam se réserve le droit de modifier, améliorer ou supprimer tout ou partie du Service à tout moment.</p>
+                <h3>Compatibilité API</h3>
+                <p>En cas de modification majeure de l'API, Adullam s'efforcera de maintenir l'ancienne version pendant une période de transition minimum de <strong style="color:var(--text)">30 jours</strong>.</p>
+                <div class="info-box blue">
+                    <strong>Arrêt du Service</strong>
+                    En cas d'arrêt définitif, Adullam s'engage à informer les Marchands avec un préavis minimum de <strong>60 jours</strong> et à faciliter la migration.
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 20 -->
+        <div class="article-slide" id="art20">
+            <div class="article-card">
+                <div class="article-num">20</div>
+                <div class="article-header">
+                    <span class="article-tag warn">Litiges</span>
+                    <h2 class="article-title">Règlement des Litiges</h2>
+                </div>
+                <h3>20.1 Résolution amiable</h3>
+                <p>En cas de litige, les parties s'engagent à rechercher une solution amiable avant toute action judiciaire. Adressez votre réclamation à <a href="mailto:support@adullam.dev" style="color:var(--accent)">support@adullam.dev</a>.</p>
+                <h3>20.2 Médiation</h3>
+                <p>À défaut de résolution amiable dans un délai de <strong style="color:var(--text)">30 jours</strong>, les parties peuvent recourir à une médiation.</p>
+                <div class="info-box blue">
+                    <strong>Juridiction compétente</strong>
+                    Tout litige sera soumis à la compétence exclusive des <strong>tribunaux d'Abidjan, Côte d'Ivoire</strong>. Toute action doit être intentée dans un délai de <strong>2 ans</strong> à compter de la survenance du fait générateur.
+                </div>
+            </div>
+        </div>
+
+        <!-- Art 21 -->
+        <div class="article-slide" id="art21">
+            <div class="article-card">
+                <div class="article-num">21</div>
+                <div class="article-header">
+                    <span class="article-tag">Droit</span>
+                    <h2 class="article-title">Droit Applicable</h2>
+                </div>
+                <p>Les présentes CGU sont régies par le <strong style="color:var(--text)">droit ivoirien</strong>. En cas de litige, les tribunaux d'Abidjan seront seuls compétents, après tentative de résolution amiable.</p>
+            </div>
+        </div>
+
+        <!-- Art 22 -->
+        <div class="article-slide" id="art22">
+            <div class="article-card">
+                <div class="article-num">22</div>
+                <div class="article-header">
+                    <span class="article-tag">Général</span>
+                    <h2 class="article-title">Dispositions Générales</h2>
+                </div>
+                <h3>18.1 Intégralité de l'accord</h3>
+                <p>Les présentes CGU constituent l'intégralité de l'accord entre les parties et remplacent tous accords, négociations ou discussions antérieurs.</p>
+                <h3>18.2 Divisibilité</h3>
+                <p>Si une disposition est déclarée nulle ou inapplicable, les autres dispositions resteront en vigueur.</p>
+                <h3>18.3 Langue</h3>
+                <p>Les présentes CGU sont rédigées en français. En cas de traduction, seule la version française fait foi.</p>
+                <h3>18.4 Notifications</h3>
+                <p>Toute notification légale au titre des présentes CGU sera adressée à <a href="mailto:legal@adullam.dev" style="color:var(--accent)">christiandohlah@adullam.dev</a>.</p>
+            </div>
+        </div>
+
+        <!-- Art 23 -->
+        <div class="article-slide" id="art23">
+            <div class="article-card">
+                <div class="article-num">23</div>
+                <div class="article-header">
+                    <span class="article-tag success">Contact</span>
+                    <h2 class="article-title">Contact</h2>
+                </div>
+                <p style="margin-bottom:1.5rem">Pour toute question relative aux présentes CGU :</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <!-- Icône Email SVG -->
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+                        </div>
+                        <div class="contact-label">Email légal</div>
+                        <div class="contact-value"><a href="mailto:christiandohlah@adullam.dev">christiandohlah@adullam.dev</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <!-- Icône Téléphone SVG -->
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92V21a2 2 0 0 1-2.18 2A19.72 19.72 0 0 1 3 5.18 2 2 0 0 1 5 3h4.09a2 2 0 0 1 2 1.72c.13 1.13.37 2.23.72 3.28a2 2 0 0 1-.45 2.11l-1.27 1.27a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c1.05.35 2.15.59 3.28.72A2 2 0 0 1 22 16.92z"/></svg>
+                        </div>
+                        <div class="contact-label">Téléphone</div>
+                        <div class="contact-value">+225 0711118582</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <!-- Icône Localisation SVG -->
+                            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="contact-label">Adresse</div>
+                        <div class="contact-value">Abidjan, Côte d'Ivoire</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /content -->
+</div><!-- /main-container -->
+
+<footer>
+    <div class="footer-inner">
+        <div class="footer-copy">© 2026 Adullam. Tous droits réservés.</div>
+        <div class="footer-links">
+            <a href="https://adullam.dev">Accueil</a>
+            <a href="https://adullam.dev/mentions/cgu">CGU</a>
+            <a href="https://adullam.dev/mentions/privacy">Confidentialité</a>
+            <a href="https://adullam.dev/doc">Documentation</a>
+        </div>
+    </div>
+</footer>
+
+<a href="#top" class="back-to-top" id="backToTop">↑</a>
+
+<script>
+    // Reading progress
+    const progress = document.getElementById('readingProgress');
+    const navbar = document.getElementById('navbar');
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = (scrollTop / docHeight) * 100;
+        progress.style.width = pct + '%';
+
+        // Navbar
+        navbar.classList.toggle('scrolled', scrollTop > 60);
+
+        // Back to top
+        backToTop.classList.toggle('visible', scrollTop > 400);
+
+        // Active sidebar link
+        updateActiveSidebarLink();
+    });
+
+    // Intersection observer for slide-in
+    const slides = document.querySelectorAll('.article-slide');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, 80);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+    slides.forEach(s => observer.observe(s));
+
+    // Active sidebar link on scroll
+    function updateActiveSidebarLink() {
+        const sidebarLinks = document.querySelectorAll('#sidebarNav a');
+        let current = '';
+
+        slides.forEach(slide => {
+            const rect = slide.getBoundingClientRect();
+            if (rect.top <= 120) {
+                current = '#' + slide.id;
+            }
+        });
+
+        sidebarLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === current);
+        });
+    }
+</script>
+</body>
+</html>
