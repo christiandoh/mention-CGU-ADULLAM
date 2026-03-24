@@ -8,6 +8,163 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
+                        /* Sidebar mobile toggle */
+                        .mobile-sidebar-toggle, .mobile-sidebar {
+                            display: none;
+                        }
+                        @media (max-width: 600px) {
+                            .mobile-sidebar-toggle {
+                                display: block;
+                                position: fixed;
+                                top: 12px;
+                                left: 12px;
+                                z-index: 200;
+                                background: var(--bg-card);
+                                border: 1px solid var(--border);
+                                border-radius: 8px;
+                                padding: 8px 12px;
+                                color: var(--accent);
+                                font-size: 1.2rem;
+                                cursor: pointer;
+                                box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+                            }
+                            .sidebar {
+                                display: none !important;
+                            }
+                            .mobile-sidebar {
+                                display: flex;
+                                flex-direction: column;
+                                position: fixed;
+                                top: 0; left: 0; bottom: 0;
+                                width: 80vw;
+                                max-width: 320px;
+                                background: var(--bg-card);
+                                border-right: 1px solid var(--border);
+                                z-index: 300;
+                                padding: 2.5rem 1.2rem 1.2rem 1.2rem;
+                                box-shadow: 2px 0 16px rgba(0,0,0,0.12);
+                                transform: translateX(-100%);
+                                transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+                            }
+                            .mobile-sidebar.open {
+                                transform: translateX(0);
+                            }
+                            .mobile-sidebar .sidebar-title {
+                                margin-bottom: 1.2rem;
+                            }
+                            .mobile-sidebar .sidebar-nav {
+                                gap: 0.2rem;
+                            }
+                            .mobile-sidebar .sidebar-version {
+                                margin-top: 2rem;
+                            }
+                            .mobile-sidebar-close {
+                                position: absolute;
+                                top: 12px;
+                                right: 16px;
+                                background: none;
+                                border: none;
+                                color: var(--accent);
+                                font-size: 2rem;
+                                cursor: pointer;
+                            }
+                            body.mobile-sidebar-open {
+                                overflow: hidden;
+                            }
+                        }
+                /* --- RESPONSIVE MOBILE --- */
+                @media (max-width: 600px) {
+                    html {
+                        font-size: 15px;
+                    }
+                    body {
+                        padding: 0;
+                        font-size: 1rem;
+                    }
+                    nav {
+                        padding: 0 0.5rem;
+                        height: 54px;
+                    }
+                    .logo-icon {
+                        width: 28px;
+                        height: 28px;
+                        font-size: 12px;
+                    }
+                    .logo-text {
+                        font-size: 14px;
+                    }
+                    .nav-links {
+                        gap: 0.7rem;
+                    }
+                    .nav-links a {
+                        font-size: 9px;
+                    }
+                    .main-container {
+                        grid-template-columns: 1fr;
+                        gap: 1.5rem;
+                        padding: 0 0.5rem 3rem;
+                    }
+                    .sidebar {
+                        display: none;
+                    }
+                    .article-card {
+                        padding: 1.1rem;
+                        border-radius: 12px;
+                    }
+                    .article-title {
+                        font-size: 1.1rem !important;
+                    }
+                    .article-num {
+                        font-size: 2.2rem;
+                        top: 1rem;
+                        right: 1rem;
+                    }
+                    .hero {
+                        padding: 70px 0.5rem 40px;
+                        min-height: 60vh;
+                    }
+                    .hero-title {
+                        font-size: 2.1rem !important;
+                        margin-bottom: 1rem;
+                    }
+                    .hero-eyebrow {
+                        font-size: 0.7rem;
+                        margin-bottom: 1rem;
+                    }
+                    .hero-meta {
+                        font-size: 0.7rem;
+                        gap: 0.7rem;
+                    }
+                    .data-grid {
+                        grid-template-columns: 1fr;
+                        gap: 0.5px;
+                    }
+                    .data-cell {
+                        padding: 0.7rem 0.7rem;
+                    }
+                    .def-item {
+                        padding: 0.7rem 0.7rem;
+                        font-size: 0.95rem;
+                    }
+                    .info-box {
+                        padding: 0.7rem 0.7rem;
+                        font-size: 0.95rem;
+                    }
+                    .contact-grid {
+                        grid-template-columns: 1fr;
+                        gap: 0.7rem;
+                    }
+                    .contact-item {
+                        padding: 0.7rem;
+                    }
+                    .footer-inner {
+                        flex-direction: column;
+                        gap: 0.7rem;
+                    }
+                    footer {
+                        padding: 1.2rem 0.5rem;
+                    }
+                }
         :root {
             --bg: #08090d;
             --bg-card: #0f1117;
@@ -689,7 +846,79 @@
 </head>
 <body>
 
+<!-- Bouton toggle sidebar mobile -->
+<button class="mobile-sidebar-toggle" id="openSidebarBtn" aria-label="Ouvrir le sommaire">
+    <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+</button>
+
+<!-- Sidebar mobile (hidden by default) -->
+<aside class="mobile-sidebar" id="mobileSidebar" tabindex="-1" aria-label="Sommaire">
+    <button class="mobile-sidebar-close" id="closeSidebarBtn" aria-label="Fermer le sommaire">&times;</button>
+    <div class="sidebar-title">Sommaire</div>
+    <ul class="sidebar-nav" id="mobileSidebarNav">
+        <li><a href="#art1">Art. 1 — Éditeur</a></li>
+        <li><a href="#art2">Art. 2 — Définitions</a></li>
+        <li><a href="#art3">Art. 3 — Acceptation</a></li>
+        <li><a href="#art4">Art. 4 — Nature du Service</a></li>
+        <li><a href="#art5">Art. 5 — Inscription</a></li>
+        <li><a href="#art6">Art. 6 — Indépendance</a></li>
+        <li><a href="#art7">Art. 7 — Tarification</a></li>
+        <li><a href="#art8">Art. 8 — Obligations</a></li>
+        <li><a href="#art9">Art. 9 — Données</a></li>
+        <li><a href="#art10">Art. 10 — Garanties</a></li>
+        <li><a href="#art11">Art. 11 — Responsabilité</a></li>
+        <li><a href="#art12">Art. 12 — Indemnisation</a></li>
+        <li><a href="#art13">Art. 13 — Dommages</a></li>
+        <li><a href="#art14">Art. 14 — Confidentialité</a></li>
+        <li><a href="#art15">Art. 15 — Suspension</a></li>
+        <li><a href="#art16">Art. 16 — Force Majeure</a></li>
+        <li><a href="#art17">Art. 17 — Anti-fraude</a></li>
+        <li><a href="#art18">Art. 18 — Propriété IP</a></li>
+        <li><a href="#art19">Art. 19 — Modifications</a></li>
+        <li><a href="#art20">Art. 20 — Litiges</a></li>
+        <li><a href="#art21">Art. 21 — Droit</a></li>
+        <li><a href="#art22">Art. 22 — Dispositions</a></li>
+        <li><a href="#art23">Art. 23 — Contact</a></li>
+    </ul>
+    <div class="sidebar-version">
+        <div>CGU Adullam · v2.0</div>
+        <div style="margin-top:4px; color: rgba(107,114,128,0.6);">Rég. par le droit ivoirien</div>
+    </div>
+</aside>
+
 <div class="reading-progress" id="readingProgress"></div>
+
+<script>
+// Sidebar mobile toggle logic
+const openSidebarBtn = document.getElementById('openSidebarBtn');
+const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+const mobileSidebar = document.getElementById('mobileSidebar');
+const sidebarLinks = mobileSidebar.querySelectorAll('a');
+
+openSidebarBtn.addEventListener('click', () => {
+    mobileSidebar.classList.add('open');
+    document.body.classList.add('mobile-sidebar-open');
+    mobileSidebar.focus();
+});
+closeSidebarBtn.addEventListener('click', () => {
+    mobileSidebar.classList.remove('open');
+    document.body.classList.remove('mobile-sidebar-open');
+});
+// Fermer la sidebar mobile au clic sur un lien
+sidebarLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileSidebar.classList.remove('open');
+        document.body.classList.remove('mobile-sidebar-open');
+    });
+});
+// Fermer avec la touche ESC
+mobileSidebar.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        mobileSidebar.classList.remove('open');
+        document.body.classList.remove('mobile-sidebar-open');
+    }
+});
+</script>
 
 <nav id="navbar">
     <a href="https://adullam.dev" class="nav-logo">
